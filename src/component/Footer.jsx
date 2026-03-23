@@ -1,5 +1,5 @@
 import "../styles/Footer.css";
-import logo from "../img/logo_Nohrd.jpg";
+import logo from "../img/logo_png_Nohrd.png";
 
 function Footer() {
   return (

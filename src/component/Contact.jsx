@@ -91,7 +91,7 @@ function Contact({ language = "es" }) {
 
           <form
             method="POST"
-            action="https://formsubmit.co/giraldeleonel22@gmail.com"
+            action="https://formsubmit.co/leonelgiralde22@gmail.com"
             className="contact__form"
           >
             <input type="hidden" name="_captcha" value="false" />

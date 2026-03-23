@@ -1,7 +1,7 @@
-import Carrusel from './Carrusel';
+import Carrusel from "./Carrusel";
 
-function Home() {
-  return <Carrusel />;
+function Home({ language }) {
+  return <Carrusel language={language} />;
 }
 
 export default Home;

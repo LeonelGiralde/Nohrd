@@ -1,38 +1,18 @@
-import { useEffect, useState } from 'react';
-import '../styles/Carrusel.css';
+import { useEffect, useState } from "react";
+import "../styles/Carrusel.css";
+import translations from "../translations";
 
-const slides = [
-  {
-    id: 1,
-    title: 'Calidad en cereales para el mercado global',
-    subtitle: 'Soluciones confiables, producción sostenida y estándares de excelencia.',
-    buttonText: 'Ver productos',
-    buttonLink: '#productos',
-    image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80',
-  },
-  {
-    id: 2,
-    title: 'Presencia internacional y visión de crecimiento',
-    subtitle: 'Conectamos producción, logística y distribución en distintos mercados.',
-    buttonText: 'Nuestra red',
-    buttonLink: '#red-global',
-    image:
-      'https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=1600&q=80',
-  },
-  {
-    id: 3,
-    title: 'Compromiso con la excelencia y la innovación',
-    subtitle: 'Trabajamos con foco en eficiencia, trazabilidad y mejora continua.',
-    buttonText: 'Conocé la empresa',
-    buttonLink: '#empresa',
-    image:
-      'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1600&q=80',
-  },
-];
+import img1 from "../img/img1.avif";
+import img2 from "../img/img2.avif";
+import img3 from "../img/img3.avif";
 
-function Carrusel() {
+const images = [img1, img2, img3];
+
+function Carrusel({ language = "es" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const t = translations[language].carousel;
+  const slides = t.slides;
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -47,12 +27,16 @@ function Carrusel() {
   };
 
   useEffect(() => {
+    setCurrentIndex(0);
+  }, [language]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
-      goToNext();
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section id="home" className="carousel">
@@ -60,21 +44,22 @@ function Carrusel() {
         className="carousel__track"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {slides.map((slide) => (
+        {slides.map((slide, index) => (
           <article
-            key={slide.id}
+            key={index}
             className="carousel__slide"
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{ backgroundImage: `url(${images[index]})` }}
           >
             <div className="carousel__overlay" />
 
             <div className="carousel__content">
-              <p className="carousel__eyebrow">NOHRD CEREALES</p>
+              <p className="carousel__eyebrow">{t.eyebrow}</p>
+
               <h1 className="carousel__title">{slide.title}</h1>
               <p className="carousel__subtitle">{slide.subtitle}</p>
 
               <a href={slide.buttonLink} className="carousel__button">
-                {slide.buttonText}
+                {slide.button}
               </a>
             </div>
           </article>
@@ -84,7 +69,7 @@ function Carrusel() {
       <button
         className="carousel__arrow carousel__arrow--left"
         onClick={goToPrev}
-        aria-label="Slide anterior"
+        aria-label={language === "es" ? "Slide anterior" : "Previous slide"}
       >
         ‹
       </button>
@@ -92,18 +77,19 @@ function Carrusel() {
       <button
         className="carousel__arrow carousel__arrow--right"
         onClick={goToNext}
-        aria-label="Siguiente slide"
+        aria-label={language === "es" ? "Siguiente slide" : "Next slide"}
       >
         ›
       </button>
 
       <div className="carousel__dots">
-        {slides.map((slide, index) => (
+        {slides.map((_, index) => (
           <button
-            key={slide.id}
-            className={`carousel__dot ${index === currentIndex ? 'carousel__dot--active' : ''}`}
+            key={index}
+            className={`carousel__dot ${
+              index === currentIndex ? "carousel__dot--active" : ""
+            }`}
             onClick={() => goToSlide(index)}
-            aria-label={`Ir al slide ${index + 1}`}
           />
         ))}
       </div>

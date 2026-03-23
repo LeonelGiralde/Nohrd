@@ -1,4 +1,5 @@
 import "../styles/ProductsCarousel.css";
+import translations from "../translations";
 
 import aceite from "../img/Carrusel/aceite.jpg";
 import carne from "../img/Carrusel/carne.avif";
@@ -14,36 +15,39 @@ import trigo from "../img/Carrusel/trigo.jpg";
 import verduras from "../img/Carrusel/verduras.jpg";
 import vino from "../img/Carrusel/vino.jpg";
 
-const products = [
-  { name: "Aceite", image: aceite },
-  { name: "Carne", image: carne },
-  { name: "Conservas", image: conservas },
-  { name: "Frutas", image: frutas },
-  { name: "Harina", image: harina },
-  { name: "Lácteos", image: lacteos },
-  { name: "Legumbres", image: legumbres },
-  { name: "Maní", image: mani },
-  { name: "Semillas de Girasol", image: semillas },
-  { name: "Soja", image: soja },
-  { name: "Trigo", image: trigo },
-  { name: "Verduras", image: verduras },
-  { name: "Vino", image: vino },
+const productImages = [
+  aceite,
+  carne,
+  conservas,
+  frutas,
+  harina,
+  lacteos,
+  legumbres,
+  mani,
+  semillas,
+  soja,
+  trigo,
+  verduras,
+  vino,
 ];
 
-const duplicatedProducts = [...products, ...products];
+function ProductsCarousel({ language = "es" }) {
+  const t = translations[language]?.products || translations.es.products;
 
-function ProductsCarousel() {
+  const products = t.items.map((name, index) => ({
+    name,
+    image: productImages[index],
+  }));
+
+  const duplicatedProducts = [...products, ...products];
+
   return (
     <section className="products-carousel" id="productos">
       <div className="products-carousel__container">
         <div className="products-carousel__header">
-          <p className="products-carousel__eyebrow">PRODUCTOS</p>
-          <h2 className="products-carousel__title">Nuestro portafolio</h2>
-          <p className="products-carousel__text">
-            Comercializamos una amplia gama de productos alimenticios para
-            mercados internacionales, con foco en calidad, continuidad de
-            suministro y excelencia comercial.
-          </p>
+          <p className="products-carousel__eyebrow">{t.eyebrow}</p>
+          <h2 className="products-carousel__title">{t.title}</h2>
+          <p className="products-carousel__text">{t.text}</p>
         </div>
 
         <div className="products-carousel__viewport">

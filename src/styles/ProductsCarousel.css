@@ -1,0 +1,139 @@
+.products-carousel {
+  background: #0b0b0b;
+  color: #ffffff;
+  padding: 120px 24px;
+  overflow: hidden;
+}
+
+.products-carousel__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.products-carousel__header {
+  max-width: 720px;
+  margin-bottom: 42px;
+  text-align: left;
+}
+
+.products-carousel__eyebrow {
+  margin: 0 0 12px;
+  color: #ffd100;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.products-carousel__title {
+  margin: 0 0 16px;
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.products-carousel__text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.products-carousel__viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.products-carousel__track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollProducts 40s linear infinite;
+}
+
+.products-carousel__viewport:hover .products-carousel__track {
+  animation-play-state: paused;
+}
+
+.products-carousel__card {
+  position: relative;
+  flex: 0 0 300px;
+  height: 360px;
+  border-radius: 22px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  border: 1px solid rgba(255, 209, 0, 0.12);
+}
+
+.products-carousel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.28) 45%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.products-carousel__card-title {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+@keyframes scrollProducts {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+@media (max-width: 900px) {
+  .products-carousel {
+    padding: 96px 20px;
+  }
+
+  .products-carousel__header {
+    margin-bottom: 32px;
+  }
+
+  .products-carousel__card {
+    flex: 0 0 240px;
+    height: 300px;
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .products-carousel__track {
+    gap: 16px;
+    animation-duration: 30s;
+  }
+}
+
+@media (max-width: 640px) {
+  .products-carousel__title {
+    font-size: 2rem;
+  }
+
+  .products-carousel__text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .products-carousel__card {
+    flex: 0 0 210px;
+    height: 260px;
+  }
+}

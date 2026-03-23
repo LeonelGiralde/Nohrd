@@ -1,0 +1,160 @@
+.ourcompany {
+  background: linear-gradient(180deg, #0b0b0b 0%, #111111 100%);
+  color: #ffffff;
+  padding: 120px 24px;
+}
+
+.ourcompany__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ourcompany__header {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.ourcompany__eyebrow {
+  margin: 0 0 14px;
+  color: #ffd100;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ourcompany__title {
+  margin: 0 0 20px;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.05;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ourcompany__lead {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 720px;
+}
+
+.ourcompany__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.ourcompany__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ourcompany__card,
+.ourcompany__panel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 209, 0, 0.14);
+  border-radius: 24px;
+  padding: 28px;
+  backdrop-filter: blur(6px);
+}
+
+.ourcompany__card--highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 209, 0, 0.12) 0%,
+    rgba(255, 209, 0, 0.04) 100%
+  );
+  border-color: rgba(255, 209, 0, 0.28);
+}
+
+.ourcompany__card-title,
+.ourcompany__panel-title {
+  margin: 0 0 16px;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ourcompany__panel-label {
+  margin: 0 0 10px;
+  color: #ffd100;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ourcompany__text {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.ourcompany__text:last-child {
+  margin-bottom: 0;
+}
+
+.ourcompany__markets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.ourcompany__market-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 209, 0, 0.08);
+  border: 1px solid rgba(255, 209, 0, 0.24);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (max-width: 960px) {
+  .ourcompany {
+    padding: 96px 20px;
+  }
+
+  .ourcompany__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ourcompany__header {
+    margin-bottom: 40px;
+  }
+
+  .ourcompany__card,
+  .ourcompany__panel {
+    padding: 22px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ourcompany__title {
+    font-size: 2.2rem;
+  }
+
+  .ourcompany__lead {
+    font-size: 1rem;
+  }
+
+  .ourcompany__market-pill {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+.ourcompany__flag {
+  font-size: 1.1rem;
+  margin-right: 8px;
+}

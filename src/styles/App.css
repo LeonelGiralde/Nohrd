@@ -1,0 +1,32 @@
+:root {
+  --black: #0b0b0b;
+  --black-soft: #111111;
+  --white: #ffffff;
+  --yellow: #ffd100;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--black);
+  color: var(--white);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 120px 24px;
+}
+
+.footer {
+  padding: 40px;
+  background: #111;
+  color: white;
+}

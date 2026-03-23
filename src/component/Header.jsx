@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/Header.css";
-import logo from "../img/";
+import logo from "../img/logo_Nohrd.jpg";
 
 const navItems = [
   { label: "Empresa", href: "#empresa" },

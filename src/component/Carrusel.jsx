@@ -14,14 +14,6 @@ function Carrusel({ language = "es" }) {
   const t = translations[language].carousel;
   const slides = t.slides;
 
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
-  };
-
-  const goToPrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
@@ -65,22 +57,6 @@ function Carrusel({ language = "es" }) {
           </article>
         ))}
       </div>
-
-      <button
-        className="carousel__arrow carousel__arrow--left"
-        onClick={goToPrev}
-        aria-label={language === "es" ? "Slide anterior" : "Previous slide"}
-      >
-        ‹
-      </button>
-
-      <button
-        className="carousel__arrow carousel__arrow--right"
-        onClick={goToNext}
-        aria-label={language === "es" ? "Siguiente slide" : "Next slide"}
-      >
-        ›
-      </button>
 
       <div className="carousel__dots">
         {slides.map((_, index) => (
